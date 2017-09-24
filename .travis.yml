@@ -1,0 +1,16 @@
+language: ruby
+cache: bundler
+sudo: false
+notifications:
+  email: false
+rvm:
+- 2.4.2
+before_script:
+- 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter'
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+env:
+  global:
+    secure: UCFW/ekVocgsdgIHiPW1o8OqRX2eA8qz80BKmQWGk9DrQ0AtEhHQDM5e9Gpei04zD+XYGEokopkPy5oqhV31Jn3M5j/NI/gYzgwrEHD0dDsvYSssep8IDv80ZCS0/w0p8yTqJG3nmK2pvjIk+6X/dgqtzDFO7fKJ0h4huxdk9dRJIKWZjTPlHjjnfZ2b7DdLDZDfuZBU1u1wCRoxaN+qVHZJhSBtuc7Wqsd2vTJdcRTe05LjehC0SWJLO8KWv3J2++QV+7ur4lvhMm4gxPLXmeO3TevkmJDv19OxmUas5A2/ynjWlkCHSUrVKoiBMMKuZzOhco59Q2teosqLZgvYQPphkjWwV7QO3+zBkm4A2hSmfe7EWj4Mp6HN5SrzJa5U+FN+zJZJabtngikHBSciE+Q/dcUfMm9ijp4M5rzg8vuolnTOgAdRaCiUsUrRpCUZplH4YgNZb3ylperinw/ILAq9LVmGQDQ+TF4Hh2XtIAtymTckE0/pWbnlF1ePd8L1W8vAUp9rlwLLfPmSEqfwBMleBqT9usz459RvLQ5DGm+s0TFt5IGFW/fPGZ6rLVCy2tzR0jkklQUXl35g+EZK+JQjh8KFexrKMb/ycbLbVR5vo+Way7Rj+fTl1FduRJmUSLKSAPey6ey3ZQcETViPXAxZ1wsbIMfqbVYex6WN6Uw=
