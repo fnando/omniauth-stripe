@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class ClientOptionsTest < Minitest::Test
@@ -12,15 +14,18 @@ class ClientOptionsTest < Minitest::Test
   end
 
   test "sets site" do
-    assert_equal "https://api.stripe.com", strategy.options.client_options.site
+    assert_equal "https://api.stripe.com",
+                 strategy.options.client_options.site
   end
 
   test "sets authorize url" do
-    assert_equal "https://connect.stripe.com/oauth/authorize", strategy.options.client_options.authorize_url
+    assert_equal "https://connect.stripe.com/oauth/authorize",
+                 strategy.options.client_options.authorize_url
   end
 
   test "sets token url" do
-    assert_equal "https://connect.stripe.com/oauth/token", strategy.options.client_options.token_url
+    assert_equal "https://connect.stripe.com/oauth/token",
+                 strategy.options.client_options.token_url
   end
 
   test "sets default scope" do

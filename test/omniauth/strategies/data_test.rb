@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class DataTest < Minitest::Test
@@ -12,7 +14,8 @@ class DataTest < Minitest::Test
     strategy.stubs(:script_name).returns("/script_name")
     strategy.stubs(:callback_path).returns("/callback_path")
 
-    assert_equal "https://example.com/script_name/callback_path", strategy.callback_url
+    assert_equal "https://example.com/script_name/callback_path",
+                 strategy.callback_url
   end
 
   test "returns raw info" do
@@ -26,7 +29,9 @@ class DataTest < Minitest::Test
   end
 
   test "returns info" do
-    strategy.stubs(:raw_info).returns(object: "OBJECT", display_name: "NAME", email: "EMAIL")
+    strategy
+      .stubs(:raw_info)
+      .returns(object: "OBJECT", display_name: "NAME", email: "EMAIL")
 
     info = strategy.info
 
