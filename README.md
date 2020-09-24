@@ -24,17 +24,23 @@ Or install it yourself as:
 
 ## Usage
 
-`OmniAuth::Strategies::Stripe` is simply a Rack middleware. Read the OmniAuth docs for detailed instructions: <https://github.com/intridea/omniauth>.
+`OmniAuth::Strategies::Stripe` is simply a Rack middleware. Read the OmniAuth
+docs for detailed instructions: <https://github.com/intridea/omniauth>.
 
-First, configure your Connect account at <https://dashboard.stripe.com/account/applications/settings>. Your callback URL must be something like `https://example.com/auth/stripe/callback`. For development you can use `http://127.0.0.1:3000/auth/stripe/callback`.
+First, configure your Connect account at
+<https://dashboard.stripe.com/account/applications/settings>. Your callback URL
+must be something like `https://example.com/auth/stripe/callback`. For
+development you can use `http://127.0.0.1:3000/auth/stripe/callback`.
 
-Here's a quick example, adding the middleware to a Rails app in `config/initializers/omniauth.rb`. This example assumes you're exporting your credentials as environment variables.
+Here's a quick example, adding the middleware to a Rails app in
+`config/initializers/omniauth.rb`. This example assumes you're exporting your
+credentials as environment variables.
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :stripe, 
-            ENV['STRIPE_CLIENT_ID'], 
-            ENV['STRIPE_CLIENT_SECRET']
+  provider :stripe,
+           ENV["STRIPE_CLIENT_ID"],
+           ENV["STRIPE_CLIENT_SECRET"]
 end
 ```
 
